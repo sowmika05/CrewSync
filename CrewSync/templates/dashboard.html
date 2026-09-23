@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-container">
+
+    <!-- Welcome Section -->
+    <div class="welcome-section">
+        <h1>Welcome to CrewConnect</h1>
+        <p>HR & Employee Management System</p>
+    </div>
+
+
+    <!-- About CrewConnect -->
+    <div class="dashboard-card about-card">
+
+        <h2>
+            <i class="bi bi-info-circle"></i>
+            About CrewConnect
+        </h2>
+
+        <p>
+            <strong>CrewConnect</strong> is a Django-based HR and Employee
+            Management System designed to manage employee information,
+            leave management and HR reports.
+        </p>
+
+        <p>
+            The application has two major roles:
+            <strong>HR</strong> and <strong>Employee</strong>.
+        </p>
+
+    </div>
+
+
+    <!-- Technology Stack -->
+    <div class="dashboard-card">
+
+        <h2>
+            <i class="bi bi-stack"></i>
+            Technology Stack
+        </h2>
+
+        <div class="technology-grid">
+
+            <div class="technology-box">
+                <h4>Backend</h4>
+                <p>Python, Django</p>
+            </div>
+
+            <div class="technology-box">
+                <h4>Database</h4>
+                <p>SQLite</p>
+            </div>
+
+            <div class="technology-box">
+                <h4>Frontend</h4>
+                <p>HTML, CSS, Bootstrap, JavaScript</p>
+            </div>
+
+            <div class="technology-box">
+                <h4>ORM</h4>
+                <p>Django ORM</p>
+            </div>
+
+            <div class="technology-box">
+                <h4>Authentication</h4>
+                <p>Django Authentication</p>
+            </div>
+
+            <div class="technology-box">
+                <h4>Email</h4>
+                <p>SMTP</p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- HR and Employee -->
+    <div class="role-grid">
+
+        <!-- HR -->
+        <div class="dashboard-card role-card">
+
+            <h2>
+                <i class="bi bi-person-badge"></i>
+                HR
+            </h2>
+
+            <p>
+                Manage employees, departments, designations,
+                leave approvals, payroll and reports.
+            </p>
+
+            <ul>
+                <li>Employee Management</li>
+                <li>Leave Approval</li>
+                <li>Departments</li>
+                <li>Designations</li>
+            </ul>
+
+        </div>
+
+
+        <!-- Employee -->
+        <div class="dashboard-card role-card">
+
+            <h2>
+                <i class="bi bi-person"></i>
+                Employee
+            </h2>
+
+            <p>
+                Employees can manage their profile,
+                apply for leave and view their payslips.
+            </p>
+
+            <ul>
+                <li>My Profile</li>
+                <li>Apply Leave</li>
+                <li>My Leaves</li>
+                <li>Leave Calendar</li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<style>
+
+    /* Main Dashboard */
+
+    .dashboard-container {
+        padding: 35px 45px;
+        background: #f5f7fb;
+        min-height: calc(100vh - 60px);
+    }
+
+
+    /* Welcome */
+
+    .welcome-section {
+        margin-bottom: 25px;
+    }
+
+    .welcome-section h1 {
+        font-size: 30px;
+        font-weight: 700;
+        color: #111827;
+        margin-bottom: 5px;
+    }
+
+    .welcome-section p {
+        font-size: 17px;
+        color: #555;
+        margin: 0;
+    }
+
+
+    /* Cards */
+
+    .dashboard-card {
+        background: white;
+        border: 1px solid #e5e7eb;
+        border-radius: 7px;
+        padding: 18px;
+        margin-bottom: 22px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.04);
+    }
+
+
+    .dashboard-card h2 {
+        font-size: 24px;
+        font-weight: 600;
+        color: #202020;
+        margin-bottom: 15px;
+    }
+
+    .dashboard-card h2 i {
+        margin-right: 7px;
+    }
+
+
+    .dashboard-card p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+    }
+
+
+    /* Technology */
+
+    .technology-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+
+    .technology-box {
+        border: 1px solid #dcdfe4;
+        border-radius: 6px;
+        padding: 16px;
+        background: #fff;
+    }
+
+
+    .technology-box h4 {
+        font-size: 16px;
+        font-weight: 700;
+        margin-bottom: 5px;
+        color: #222;
+    }
+
+
+    .technology-box p {
+        margin: 0;
+        color: #666;
+        font-size: 15px;
+    }
+
+
+    /* HR + Employee */
+
+    .role-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 22px;
+    }
+
+
+    .role-card {
+        min-height: 220px;
+    }
+
+
+    .role-card ul {
+        padding-left: 20px;
+        margin-top: 12px;
+    }
+
+
+    .role-card li {
+        margin-bottom: 7px;
+        color: #444;
+    }
+
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+
+        .technology-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .role-grid {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+
+    @media (max-width: 600px) {
+
+        .dashboard-container {
+            padding: 20px;
+        }
+
+        .technology-grid {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+</style>
+
+{% endblock %}

@@ -1,0 +1,199 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+        <div>
+            <h2>My Profile</h2>
+            <p class="text-muted">
+                View your employee information
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="card shadow-sm">
+
+        <div class="card-header">
+            <h5 class="mb-0">
+                Personal Information
+            </h5>
+        </div>
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-4">
+
+                    <label class="text-muted">
+                        Employee ID
+                    </label>
+
+                    <div>
+                        <strong>
+                            {{ employee.employee_id }}
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 mb-4">
+
+                    <label class="text-muted">
+                        Name
+                    </label>
+
+                    <div>
+                        <strong>
+                            {{ employee.name }}
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 mb-4">
+
+                    <label class="text-muted">
+                        Email
+                    </label>
+
+                    <div>
+                        {{ employee.email }}
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 mb-4">
+
+                    <label class="text-muted">
+                        Phone
+                    </label>
+
+                    <div>
+                        {{ employee.phone }}
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 mb-4">
+
+                    <label class="text-muted">
+                        Department
+                    </label>
+
+                    <div>
+                        {{ employee.department.name }}
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 mb-4">
+
+                    <label class="text-muted">
+                        Designation
+                    </label>
+
+                    <div>
+                        {{ employee.designation.name }}
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 mb-4">
+
+                    <label class="text-muted">
+                        Joining Date
+                    </label>
+
+                    <div>
+                        {{ employee.joining_date }}
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 mb-4">
+
+                    <label class="text-muted">
+                        Employment Type
+                    </label>
+
+                    <div>
+                        {{ employee.employment_type }}
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 mb-4">
+
+                    <label class="text-muted">
+                        Salary
+                    </label>
+
+                    <div>
+                        ₹ {{ employee.salary }}
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-6 mb-4">
+
+                    <label class="text-muted">
+                        Status
+                    </label>
+
+                    <div>
+
+                        {% if employee.status %}
+
+                            <span class="badge bg-success">
+                                Active
+                            </span>
+
+                        {% else %}
+
+                            <span class="badge bg-danger">
+                                Inactive
+                            </span>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-md-12">
+
+                    <label class="text-muted">
+                        Address
+                    </label>
+
+                    <div>
+                        {{ employee.address }}
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

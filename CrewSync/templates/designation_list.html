@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+
+{% block title %}Designations{% endblock %}
+
+{% block content %}
+
+<div class="page-container">
+
+    <!-- Page Header -->
+
+    <div class="page-header">
+
+        <div>
+            <h1>Designations</h1>
+            <p>Manage employee designations</p>
+        </div>
+
+        <a href="#" class="btn-add">
+            <i class="bi bi-plus-lg"></i>
+            Add Designation
+        </a>
+
+    </div>
+
+
+    <!-- Table -->
+
+    <div class="table-card">
+
+        <div class="table-card-header">
+
+            <h3>
+                <i class="bi bi-briefcase"></i>
+                Designation List
+            </h3>
+
+            <span class="count">
+                {{ designations|length }} Designations
+            </span>
+
+        </div>
+
+
+        <div class="table-responsive">
+
+            <table class="custom-table">
+
+                <thead>
+
+                    <tr>
+                        <th>#</th>
+                        <th>Designation Name</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for designation in designations %}
+
+                    <tr>
+
+                        <td>
+                            {{ forloop.counter }}
+                        </td>
+
+                        <td>
+                            <i class="bi bi-briefcase designation-icon"></i>
+                            {{ designation.name }}
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+
+                        <td colspan="2" class="empty">
+                            No designations found.
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<style>
+
+.page-container {
+    padding: 35px 45px;
+    background: #f5f7fb;
+    min-height: calc(100vh - 60px);
+}
+
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+
+.page-header h1 {
+    margin: 0;
+    font-size: 30px;
+    color: #111827;
+}
+
+
+.page-header p {
+    margin-top: 5px;
+    color: #6b7280;
+}
+
+
+.btn-add {
+    background: #2563eb;
+    color: white;
+    padding: 10px 17px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+
+.btn-add:hover {
+    background: #1d4ed8;
+    color: white;
+}
+
+
+.table-card {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+    max-width: 1000px;
+}
+
+
+.table-card-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.table-card-header h3 {
+    margin: 0;
+    font-size: 19px;
+}
+
+
+.table-card-header i {
+    margin-right: 7px;
+}
+
+
+.count {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.custom-table th {
+    text-align: left;
+    padding: 14px 20px;
+    background: #f8fafc;
+    font-size: 14px;
+}
+
+
+.custom-table td {
+    padding: 15px 20px;
+    border-top: 1px solid #e5e7eb;
+}
+
+
+.custom-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+
+.designation-icon {
+    margin-right: 8px;
+    color: #2563eb;
+}
+
+
+.empty {
+    text-align: center;
+    color: #6b7280;
+    padding: 30px !important;
+}
+
+</style>
+
+{% endblock %}

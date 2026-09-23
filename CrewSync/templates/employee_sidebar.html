@@ -1,0 +1,154 @@
+<!-- Employee Sidebar -->
+
+
+<aside class="sidebar">
+
+
+   <!-- Logo -->
+   <div class="logo">
+       <i class="bi bi-people-fill"></i>
+       <span>CrewSync</span>
+   </div>
+
+
+
+
+   <!-- Navigation -->
+   <nav class="sidebar-nav">
+
+
+       <!-- Dashboard -->
+       <a href="{% url 'employee_dashboard' %}"
+          class="nav-item active">
+
+
+           <i class="bi bi-grid-1x2-fill"></i>
+
+
+           <span>Dashboard</span>
+
+
+       </a>
+
+
+
+
+       <!-- My Profile -->
+       <a href="{% url 'my_profile' %}"
+          class="nav-item">
+
+
+           <i class="bi bi-person-circle"></i>
+
+
+           <span>My Profile</span>
+
+
+       </a>
+
+
+
+
+       <!-- Leave Management -->
+       <div class="nav-section">
+
+
+           <div class="nav-item">
+
+
+               <div class="nav-item-left">
+
+
+                   <i class="bi bi-calendar3"></i>
+
+
+                   <span>Leave Management</span>
+
+
+               </div>
+
+
+               <i class="bi bi-chevron-down"></i>
+
+
+           </div>
+
+
+
+
+           <div class="submenu">
+
+
+               <a href="{% url 'apply_leave' %}">
+
+
+                   <i class="bi bi-calendar-plus"></i>
+
+
+                   <span>Apply Leave</span>
+
+
+               </a>
+
+
+
+
+               <a href="{% url 'my_leaves' %}">
+
+
+                   <i class="bi bi-calendar-check"></i>
+
+
+                   <span>My Leaves</span>
+
+
+               </a>
+
+
+
+
+               <a href="{% url 'leave_calender' %}">
+
+
+                   <i class="bi bi-calendar3"></i>
+
+
+                   <span>Leave Calender</span>
+
+
+               </a>
+
+
+           </div>
+
+
+       </div>
+
+
+
+
+
+
+   <!-- Logout -->
+
+
+   <div class="sidebar-footer">
+
+
+       <a href="{% url 'logout' %}"
+          class="nav-item logout">
+
+
+           <i class="bi bi-box-arrow-right"></i>
+
+
+           <span>Logout</span>
+
+
+       </a>
+
+
+   </div>
+
+
+</aside>

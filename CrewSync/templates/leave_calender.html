@@ -1,0 +1,326 @@
+{% extends "base.html" %}
+
+{% block title %}Leave Calendar{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid py-4">
+
+    <!-- Page Heading -->
+    <div class="mb-4">
+        <h2 class="fw-semibold">Leave Calendar</h2>
+        <p class="text-muted mb-0">
+            View employee leaves and their status
+        </p>
+    </div>
+
+    <!-- Calendar Card -->
+    <div class="card shadow-sm leave-calendar-card">
+
+        <div class="card-header bg-white d-flex justify-content-between align-items-center">
+            <h5 class="mb-0">
+                <i class="bi bi-calendar3 me-2"></i>
+                Leave Calendar
+            </h5>
+
+            <!-- Month -->
+            <div>
+                <button class="btn btn-sm btn-outline-secondary me-1">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+
+                <span class="fw-semibold mx-2">
+                    September 2026
+                </span>
+
+                <button class="btn btn-sm btn-outline-secondary ms-1">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="card-body">
+
+            <!-- Legend -->
+            <div class="d-flex gap-4 mb-3">
+
+                <div>
+                    <span class="legend-box approved"></span>
+                    Approved
+                </div>
+
+                <div>
+                    <span class="legend-box pending"></span>
+                    Pending
+                </div>
+
+                <div>
+                    <span class="legend-box rejected"></span>
+                    Rejected
+                </div>
+
+            </div>
+
+            <!-- Calendar -->
+            <div class="calendar">
+
+                <!-- Days -->
+                <div class="calendar-header">Sun</div>
+                <div class="calendar-header">Mon</div>
+                <div class="calendar-header">Tue</div>
+                <div class="calendar-header">Wed</div>
+                <div class="calendar-header">Thu</div>
+                <div class="calendar-header">Fri</div>
+                <div class="calendar-header">Sat</div>
+
+
+                <!-- Empty days -->
+                <div class="calendar-day empty"></div>
+
+                <!-- 1 -->
+                <div class="calendar-day">
+                    <span class="date">1</span>
+                </div>
+
+                <!-- 2 -->
+                <div class="calendar-day">
+                    <span class="date">2</span>
+                </div>
+
+                <!-- 3 -->
+                <div class="calendar-day">
+                    <span class="date">3</span>
+                </div>
+
+                <!-- 4 -->
+                <div class="calendar-day">
+                    <span class="date">4</span>
+                </div>
+
+                <!-- 5 -->
+                <div class="calendar-day">
+                    <span class="date">5</span>
+                </div>
+
+                <!-- 6 -->
+                <div class="calendar-day">
+                    <span class="date">6</span>
+                </div>
+
+                <!-- 7 -->
+                <div class="calendar-day">
+                    <span class="date">7</span>
+                </div>
+
+                <!-- 8 -->
+                <div class="calendar-day">
+                    <span class="date">8</span>
+                </div>
+
+                <!-- 9 -->
+                <div class="calendar-day">
+                    <span class="date">9</span>
+                </div>
+
+                <!-- 10 -->
+                <div class="calendar-day">
+                    <span class="date">10</span>
+                </div>
+
+                <!-- 11 -->
+                <div class="calendar-day">
+                    <span class="date">11</span>
+                </div>
+
+                <!-- 12 -->
+                <div class="calendar-day">
+                    <span class="date">12</span>
+                </div>
+
+                <!-- 13 -->
+                <div class="calendar-day">
+                    <span class="date">13</span>
+                </div>
+
+                <!-- 14 -->
+                <div class="calendar-day">
+                    <span class="date">14</span>
+                </div>
+
+                <!-- 15 -->
+                <div class="calendar-day">
+                    <span class="date">15</span>
+                </div>
+
+                <!-- 16 -->
+                <div class="calendar-day">
+                    <span class="date">16</span>
+                </div>
+
+                <!-- 17 -->
+                <div class="calendar-day">
+                    <span class="date">17</span>
+                </div>
+
+                <!-- 18 -->
+                <div class="calendar-day">
+                    <span class="date">18</span>
+                </div>
+
+                <!-- 19 -->
+                <div class="calendar-day">
+                    <span class="date">19</span>
+                </div>
+
+                <!-- 20 -->
+                <div class="calendar-day">
+                    <span class="date">20</span>
+                </div>
+
+                <!-- 21 -->
+                <div class="calendar-day">
+                    <span class="date">21</span>
+                </div>
+
+                <!-- 22 -->
+                <div class="calendar-day today">
+                    <span class="date">22</span>
+                    <span class="today-text">Today</span>
+                </div>
+
+                <!-- 23 -->
+                <div class="calendar-day">
+                    <span class="date">23</span>
+                </div>
+
+                <!-- 24 -->
+                <div class="calendar-day">
+                    <span class="date">24</span>
+                </div>
+
+                <!-- 25 -->
+                <div class="calendar-day">
+                    <span class="date">25</span>
+                </div>
+
+                <!-- 26 -->
+                <div class="calendar-day">
+                    <span class="date">26</span>
+                </div>
+
+                <!-- 27 -->
+                <div class="calendar-day">
+                    <span class="date">27</span>
+                </div>
+
+                <!-- 28 -->
+                <div class="calendar-day">
+                    <span class="date">28</span>
+                </div>
+
+                <!-- 29 -->
+                <div class="calendar-day">
+                    <span class="date">29</span>
+                </div>
+
+                <!-- 30 -->
+                <div class="calendar-day">
+                    <span class="date">30</span>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<style>
+
+    /* Medium calendar size */
+    .leave-calendar-card {
+        max-width: 900px;
+        margin: 0 auto;
+        border-radius: 10px;
+    }
+
+    .calendar {
+        display: grid;
+        grid-template-columns: repeat(7, 1fr);
+        border-top: 1px solid #dee2e6;
+        border-left: 1px solid #dee2e6;
+    }
+
+    .calendar-header {
+        text-align: center;
+        font-weight: 600;
+        font-size: 14px;
+        padding: 10px;
+        background: #f8f9fa;
+        border-right: 1px solid #dee2e6;
+        border-bottom: 1px solid #dee2e6;
+    }
+
+    .calendar-day {
+        min-height: 75px;
+        padding: 8px;
+        background: white;
+        border-right: 1px solid #dee2e6;
+        border-bottom: 1px solid #dee2e6;
+        position: relative;
+    }
+
+    .calendar-day:hover {
+        background: #f8faff;
+    }
+
+    .calendar-day.empty {
+        background: #f8f9fa;
+    }
+
+    .date {
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .today {
+        background: #eef4ff;
+    }
+
+    .today .date {
+        color: #2563eb;
+        font-weight: 700;
+    }
+
+    .today-text {
+        display: block;
+        font-size: 11px;
+        color: #2563eb;
+        margin-top: 3px;
+    }
+
+    /* Calendar legend */
+    .legend-box {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 3px;
+        margin-right: 5px;
+    }
+
+    .approved {
+        background: #198754;
+    }
+
+    .pending {
+        background: #ffc107;
+    }
+
+    .rejected {
+        background: #dc3545;
+    }
+
+</style>
+
+{% endblock %}

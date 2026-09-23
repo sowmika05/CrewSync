@@ -1,0 +1,166 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <h2 class="mb-4">
+        Welcome, {{ employee.name }}
+    </h2>
+
+
+    <!-- Summary Cards -->
+
+    <div class="row">
+
+        <div class="col-md-4">
+
+            <div class="card shadow-sm mb-4">
+
+                <div class="card-body">
+
+                    <h6>Employee ID</h6>
+
+                    <h4>
+                        {{ employee.employee_id }}
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="card shadow-sm mb-4">
+
+                <div class="card-body">
+
+                    <h6>Department</h6>
+
+                    <h4>
+                        {{ employee.department.name }}
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="col-md-4">
+
+            <div class="card shadow-sm mb-4">
+
+                <div class="card-body">
+
+                    <h6>Designation</h6>
+
+                    <h4>
+                        {{ employee.designation.name }}
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Employee Information -->
+
+    <div class="card shadow-sm">
+
+        <div class="card-header">
+
+            <h5 class="mb-0">
+                My Information
+            </h5>
+
+        </div>
+
+
+        <div class="card-body">
+
+            <div class="row">
+
+                <div class="col-md-6 mb-3">
+
+                    <strong>Name:</strong>
+
+                    {{ employee.name }}
+
+                </div>
+
+
+                <div class="col-md-6 mb-3">
+
+                    <strong>Email:</strong>
+
+                    {{ employee.email }}
+
+                </div>
+
+
+                <div class="col-md-6 mb-3">
+
+                    <strong>Phone:</strong>
+
+                    {{ employee.phone }}
+
+                </div>
+
+
+                <div class="col-md-6 mb-3">
+
+                    <strong>Joining Date:</strong>
+
+                    {{ employee.joining_date }}
+
+                </div>
+
+
+                <div class="col-md-6 mb-3">
+
+                    <strong>Employment Type:</strong>
+
+                    {{ employee.employment_type }}
+
+                </div>
+
+
+                <div class="col-md-6 mb-3">
+
+                    <strong>Status:</strong>
+
+                    {% if employee.status %}
+
+                        <span class="badge bg-success">
+                            Active
+                        </span>
+
+                    {% else %}
+
+                        <span class="badge bg-danger">
+                            Inactive
+                        </span>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

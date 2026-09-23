@@ -1,0 +1,484 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+
+
+    <!-- Page Header -->
+
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+
+
+        <div>
+
+
+            {% if is_update %}
+                <h2>Update Employee</h2>
+                <p class="text-muted">
+                    Update employee information
+                </p>
+            {% else %}
+                <h2>Add Employee</h2>
+                <p class="text-muted">
+                    Add a new employee to CrewConnect
+                </p>
+            {% endif %}
+
+
+        </div>
+
+
+
+
+        <a href="{% url 'employee_list' %}" class="btn btn-secondary">
+            Back to Employees
+        </a>
+
+
+    </div>
+
+
+
+
+    <!-- Employee Form -->
+
+
+    <div class="card shadow-sm">
+
+
+        <div class="card-body">
+
+
+            {% if is_update %}
+
+
+                <form method="POST"
+                      action="{% url 'employee_update' employee.id %}">
+
+
+            {% else %}
+
+
+                <form method="POST"
+                      action="{% url 'employee_create' %}">
+
+
+            {% endif %}
+
+
+                {% csrf_token %}
+
+
+
+
+                <!-- Employee ID -->
+
+
+                <div class="mb-3">
+
+
+                    <label class="form-label">
+                        Employee ID
+                    </label>
+
+
+                    <input
+                        type="text"
+                        name="employee_id"
+                        class="form-control"
+                        placeholder="Enter employee ID"
+                        value="{{ employee.employee_id|default:'' }}"
+                        required
+                    >
+
+
+                </div>
+
+
+
+
+                <!-- Name -->
+
+
+                <div class="mb-3">
+
+
+                    <label class="form-label">
+                        Employee Name
+                    </label>
+
+
+                    <input
+                        type="text"
+                        name="name"
+                        class="form-control"
+                        placeholder="Enter employee name"
+                        value="{{ employee.name|default:'' }}"
+                        required
+                    >
+
+
+                </div>
+
+
+
+
+                <!-- Email -->
+
+
+                <div class="mb-3">
+
+
+                    <label class="form-label">
+                        Email
+                    </label>
+
+
+                    <input
+                        type="email"
+                        name="email"
+                        class="form-control"
+                        placeholder="Enter email"
+                        value="{{ employee.email|default:'' }}"
+                        required
+                    >
+
+
+                </div>
+
+
+
+
+                <!-- Phone -->
+
+
+                <div class="mb-3">
+
+
+                    <label class="form-label">
+                        Phone
+                    </label>
+
+
+                    <input
+                        type="text"
+                        name="phone"
+                        class="form-control"
+                        placeholder="Enter phone number"
+                        value="{{ employee.phone|default:'' }}"
+                        required
+                    >
+
+
+                </div>
+
+
+
+
+                <!-- Department -->
+
+
+                <div class="mb-3">
+
+
+                    <label class="form-label">
+                        Department
+                    </label>
+
+
+                    <select
+                        name="department"
+                        class="form-select"
+                        required
+                    >
+
+
+                        <option value="">
+                            Select Department
+                        </option>
+
+
+                        {% for department in departments %}
+
+
+                            <option
+                                value="{{ department.id }}"
+                                {% if employee.department_id == department.id %}
+                                    selected
+                                {% endif %}
+                            >
+                                {{ department.name }}
+                            </option>
+
+
+                        {% endfor %}
+
+
+                    </select>
+
+
+                </div>
+
+
+
+
+                <!-- Designation -->
+
+
+                <div class="mb-3">
+
+
+                    <label class="form-label">
+                        Designation
+                    </label>
+
+
+                    <select
+                        name="designation"
+                        class="form-select"
+                        required
+                    >
+
+
+                        <option value="">
+                            Select Designation
+                        </option>
+
+
+                        {% for designation in designations %}
+
+
+                            <option
+                                value="{{ designation.id }}"
+                                {% if employee.designation_id == designation.id %}
+                                    selected
+                                {% endif %}
+                            >
+                                {{ designation.name }}
+                            </option>
+
+
+                        {% endfor %}
+
+
+                    </select>
+
+
+                </div>
+
+
+
+
+                <!-- Joining Date -->
+
+
+                <div class="mb-3">
+
+
+                    <label class="form-label">
+                        Joining Date
+                    </label>
+
+
+                    <input
+                        type="date"
+                        name="joining_date"
+                        class="form-control"
+                        value="{{ employee.joining_date|date:'Y-m-d' }}"
+                        required
+                    >
+
+
+                </div>
+
+
+
+
+                <!-- Employment Type -->
+
+
+                <div class="mb-3">
+
+
+                    <label class="form-label">
+                        Employment Type
+                    </label>
+
+
+                    <select
+                        name="employment_type"
+                        class="form-select"
+                        required
+                    >
+
+
+                        <option value="">
+                            Select Employment Type
+                        </option>
+
+
+                        {% for value, label in employment_types %}
+
+
+                            <option
+                                value="{{ value }}"
+                                {% if employee.employment_type == value %}
+                                    selected
+                                {% endif %}
+                            >
+                                {{ label }}
+                            </option>
+
+
+                        {% endfor %}
+
+
+                    </select>
+
+
+                </div>
+
+
+
+
+                <!-- Salary -->
+
+
+                <div class="mb-3">
+
+
+                    <label class="form-label">
+                        Salary
+                    </label>
+
+
+                    <input
+                        type="number"
+                        name="salary"
+                        class="form-control"
+                        placeholder="Enter salary"
+                        value="{{ employee.salary|default:'' }}"
+                        step="0.01"
+                        required
+                    >
+
+
+                </div>
+
+
+
+
+                <!-- Address -->
+
+
+                <div class="mb-3">
+
+
+                    <label class="form-label">
+                        Address
+                    </label>
+
+
+                    <textarea
+                        name="address"
+                        class="form-control"
+                        rows="4"
+                        placeholder="Enter address"
+                        required
+                    >{{ employee.address|default:'' }}</textarea>
+
+
+                </div>
+
+
+
+
+                <!-- Status -->
+
+
+                <div class="form-check mb-4">
+
+
+                    <input
+                        type="checkbox"
+                        name="status"
+                        class="form-check-input"
+                        id="status"
+
+
+                        {% if not is_update or employee.status %}
+                            checked
+                        {% endif %}
+                    >
+
+
+                    <label
+                        class="form-check-label"
+                        for="status"
+                    >
+                        Active
+                    </label>
+
+
+                </div>
+
+
+
+
+                <!-- Submit Button -->
+
+
+                {% if is_update %}
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-warning"
+                    >
+                        Update Employee
+                    </button>
+
+
+                {% else %}
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Add Employee
+                    </button>
+
+
+                {% endif %}
+
+
+
+
+                <a
+                    href="{% url 'employee_list' %}"
+                    class="btn btn-secondary"
+                >
+                    Cancel
+                </a>
+
+
+
+
+            </form>
+
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+{% endblock %}

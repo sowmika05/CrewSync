@@ -1,0 +1,217 @@
+{% extends "base.html" %}
+
+{% block title %}Departments{% endblock %}
+
+{% block content %}
+
+<div class="page-container">
+
+    <!-- Page Header -->
+    <div class="page-header">
+
+        <div>
+            <h1>Departments</h1>
+            <p>Manage all departments</p>
+        </div>
+
+        <a href="#" class="btn-add">
+            <i class="bi bi-plus-lg"></i>
+            Add Department
+        </a>
+
+    </div>
+
+
+    <!-- Department Table -->
+    <div class="table-card">
+
+        <div class="table-card-header">
+
+            <h3>
+                <i class="bi bi-building"></i>
+                Department List
+            </h3>
+
+            <span class="count">
+                {{ departments|length }} Departments
+            </span>
+
+        </div>
+
+
+        <div class="table-responsive">
+
+            <table class="custom-table">
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Department Name</th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+
+                    {% for department in departments %}
+
+                    <tr>
+
+                        <td>
+                            {{ forloop.counter }}
+                        </td>
+
+                        <td>
+                            <i class="bi bi-building department-icon"></i>
+                            {{ department.name }}
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="2" class="empty">
+                            No departments found.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<style>
+
+.page-container {
+    padding: 35px 45px;
+    background: #f5f7fb;
+    min-height: calc(100vh - 60px);
+}
+
+
+/* Header */
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.page-header h1 {
+    margin: 0;
+    font-size: 30px;
+    color: #111827;
+}
+
+.page-header p {
+    margin-top: 5px;
+    color: #6b7280;
+}
+
+
+/* Add Button */
+
+.btn-add {
+    background: #2563eb;
+    color: white;
+    padding: 10px 17px;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+.btn-add:hover {
+    background: #1d4ed8;
+    color: white;
+}
+
+
+/* Table Card */
+
+.table-card {
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+    max-width: 1000px;
+}
+
+
+/* Table Header */
+
+.table-card-header {
+    padding: 18px 20px;
+    border-bottom: 1px solid #e5e7eb;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-card-header h3 {
+    margin: 0;
+    font-size: 19px;
+}
+
+.table-card-header i {
+    margin-right: 7px;
+}
+
+.count {
+    font-size: 14px;
+    color: #6b7280;
+}
+
+
+/* Table */
+
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.custom-table th {
+    text-align: left;
+    padding: 14px 20px;
+    background: #f8fafc;
+    font-size: 14px;
+    color: #374151;
+}
+
+.custom-table td {
+    padding: 15px 20px;
+    border-top: 1px solid #e5e7eb;
+    color: #374151;
+}
+
+.custom-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+
+.department-icon {
+    margin-right: 8px;
+    color: #2563eb;
+}
+
+
+/* Empty */
+
+.empty {
+    text-align: center;
+    color: #6b7280;
+    padding: 30px !important;
+}
+
+</style>
+
+{% endblock %}
